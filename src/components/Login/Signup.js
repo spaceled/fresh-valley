@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import initializeAuthentication from './firebase.init';
 import loginImage from '../../images/loginImage.jpg'
 import './Login.css';
+import { Link } from 'react-router-dom';
+import initializeAuthentication from './firebase.init';
 
 
 
@@ -20,7 +21,7 @@ const Signup = () => {
     // });
     // 
     
-    
+    // https://web.programming-hero.com/update-1/video/update-1-58-1-module-introduction-and-basic-project-setup
     const auth = getAuth();
     const handleRegistration = (event) => {
         event.preventDefault();
@@ -52,6 +53,7 @@ const Signup = () => {
     }
     return (
         <section className="ftco-section">
+            <h2>Please, Register</h2>
             <div className="container">
                 {/* <div className="row justify-content-center">
 				<div className="col-md-6 text-center mb-5">
@@ -89,6 +91,11 @@ const Signup = () => {
                                         <span toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password"></span>
                                     </div>
                                     <div className="form-group">
+                                        <input id="password-field" onBlur={handlePasswordChange} type="password" className="form-control" required />
+                                        <label className="form-control-placeholder" htmlFor="password">Confirm Password</label>
+                                        <span toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    </div>
+                                    <div className="form-group">
                                         <button type="submit" className="form-control btn btn-primary rounded submit px-3">Register</button>
                                     </div>
                                     <div className="form-group d-md-flex">
@@ -103,7 +110,7 @@ const Signup = () => {
                                         </div>
                                     </div>
                                 </form>
-                                <p className="text-center">Already a member? <a data-toggle="tab" href="#signup">Login</a></p>
+                                Already Registered?<Link to="/login">Login</Link>
                             </div>
                         </div>
                     </div>

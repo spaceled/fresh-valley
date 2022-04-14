@@ -38,16 +38,17 @@ const AddProduct = () => {
     
     axios.post('https://api.imgbb.com/1/upload', imageData)
     .then(res => {
-      setImageURL(res.data.data.display_url)
+      setImageURL(res.data.data.display_url);
+      console.log(setImageURL(res.data.data.display_url));
     })
     .catch(err => console.log(err))
 
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="name" defaultValue="Product Name" {...register("name")} /> <br />
-      <input name="weight" defaultValue="Weight" {...register("weight")} /> <br />
-      <input name="price" defaultValue="Price" {...register("price")} /> <br />
+      <input name="name" placeholder="Product Name" defaultValue="" {...register("name")} /> <br />
+      <input name="weight" placeholder="Weight" defaultValue="" {...register("weight")} /> <br />
+      <input name="price" placeholder="Price" defaultValue="" {...register("price")} /> <br />
       <input type="file" onChange={handleAddProduct} /> <br />
       {errors.exampleRequired && <span>This field is required</span>} <br />
 
